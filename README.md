@@ -10,7 +10,7 @@ This folder contains a series of modular notebooks exploring free-fall motion th
 - Recovers physically meaningful parameters and visualizes predictions
 - Implements early stopping and best model checkpointing
 
-### `02_free_fall_with_noise.ipynb` *(planned)*
+### `02_free_fall_with_noise.ipynb`
 - Adds controlled noise to simulate real-world measurement uncertainty
 - Repeats experiments to assess robustness of loss functions and parameter recovery
 
