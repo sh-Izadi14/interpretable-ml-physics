@@ -1,4 +1,7 @@
+import torch
 from torch import nn
+
+torch.manual_seed(42)
 
 class LinearRegressionModel(nn.Module):
     def __init__(self):

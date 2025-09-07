@@ -10,25 +10,58 @@ This folder contains a series of modular notebooks exploring free-fall motion th
 - Recovers physically meaningful parameters and visualizes predictions
 - Implements early stopping and best model checkpointing
 
-### `02_free_fall_with_noise.ipynb` *(planned)*
+### `02_free_fall_with_noise.ipynb`
 - Adds controlled noise to simulate real-world measurement uncertainty
 - Repeats experiments to assess robustness of loss functions and parameter recovery
 
-### `03_loss_function_comparison.ipynb` *(planned)*
-- Explores alternative loss functions such as Huber and Log-Cosh
+### `03_loss_function_comparison.ipynb`
+- Explores alternative loss function (Huber)
 - Evaluates trade-offs between sensitivity, stability, and interpretability
 
-### `04_regularization_and_constraints.ipynb` *(planned)*
-- Introduces physical constraints and regularization techniques
-- Investigates their impact on parameter realism and generalization
+## ⚙️ Utilities Overview
 
-## 🛠️ Utilities
+This project adopts a modular design for clarity, scalability, and ease of experimentation. Below is a breakdown of the utility modules located in the `utils/` directory:
 
-### `utils/denormalizing.py`
-- Contains `denormalize_parameters()` function to reverse normalization and recover interpretable model weights
+### 1. `denormalizing.py`
+- **`denormalizing()`**  
+  Reverts normalized predictions back to their original scale for interpretability and evaluation.
 
-### `utils/plot_predictions.py` *(optional)*
-- Utility for visualizing predicted vs. true trajectories
+---
+
+### 2. `experiment_preparation.py`
+Essential preprocessing functions for setting up experiments:
+- **`adding_noise()`** – Adds controlled Gaussian noise to simulate real-world measurement errors.  
+- **`normalization()`** – Scales input features to improve model convergence and stability.  
+- **`splitting_data()`** – Splits the dataset into training and testing sets for evaluation.
+
+---
+
+### 3. `model_architecture.py`
+Defines the model used for learning physical relationships:
+- **`LinearRegressionModel(nn.Module)`**  
+  A PyTorch-based linear regression model tailored for interpretable physics tasks.
+
+---
+
+### 4. `ploting_utils.py`
+Visualization tools to monitor training and evaluate predictions:
+- **`plot_loss_curves()`** – Plots training and test loss over epochs.  
+- **`plot_predictions()`** – Visualizes model predictions against ground truth for qualitative assessment.
+
+---
+
+### 5. `recovered_parameters.py`
+- **`recovered_parameters()`**  
+  Extracts and displays learned model parameters, enabling interpretation in the context of physical laws.
+
+---
+
+### 6. `train_model.py`
+Handles model training with early stopping and checkpointing:
+- **`TrainingConfig`** – A dataclass encapsulating training hyperparameters and settings.  
+- **`train_model()`** – Trains the model using the provided configuration, tracks losses, and saves the best-performing checkpoint.
+
+---
 
 ## 🧠 Philosophy
 

@@ -1,5 +1,14 @@
 import matplotlib.pyplot as plt
 
+def plot_loss_curves(loss_fn_name, epochs_run, train_losses, test_losses):
+        plt.title(f'{loss_fn_name} Curves')
+        plt.plot(epochs_run, train_losses, c ='b', label='Train Loss')
+        plt.plot(epochs_run, test_losses, c = 'r', label='Test Loss')
+        plt.ylabel("Loss")
+        plt.xlabel("Epochs")
+        plt.legend()
+
+
 def plot_predictions(train_data,
                      train_labels,
                      test_data, 
